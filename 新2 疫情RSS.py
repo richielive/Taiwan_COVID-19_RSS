@@ -84,4 +84,4 @@ async def update():
         else:
             pass
 
-bot.run("ODMxNDU0Mjg5MDkyMTQ5Mjk4.YHVeJg.fjH7YtVsqiAe6BQavP_vPjhY9fw")
+bot.run("discord tokin")
