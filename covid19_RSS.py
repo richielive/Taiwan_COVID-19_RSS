@@ -60,7 +60,7 @@ async def update():
             if (len(post_list) >= 1):
                 with open('rss.json',encoding="utf-8") as r:
                     jd = json.load(r)
-                    jd['post_list'] = f"{post}"
+                    jd['post_list'] = post
                     json.dump(jd, open("rss.json","w",encoding='utf-8'), indent=4, ensure_ascii=False)
             print('疫情Ran if')
         else:
@@ -73,15 +73,13 @@ async def update():
             embed.set_footer(text="資料來源:衛生福利部疾病管制屬RSS資料中心",icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/ROC_Ministry_of_Health_and_Welfare_Seal.svg/200px-ROC_Ministry_of_Health_and_Welfare_Seal.svg.png")
             await channel.send(embed=embed)
             # await channel.send(f'> :hourglass::exclamation:**{post}**\n> {text} \n> {link}')
-            with open("rss.json", 'r',encoding="utf-8") as reader:
-                jdata1 = json.loads(reader.read())
-                post_list = jdata1['post_list']
-                if (len(post_list) >= 1):
-                    post_list.pop()
-                post_list.append(post)
-                print('疫情Ran if')
-
+            if (len(post_list) >= 1):
+                with open('rss.json',encoding="utf-8") as r:
+                    jd = json.load(r)
+                    jd['post_list'] = post
+                    json.dump(jd, open("rss.json","w",encoding='utf-8'), indent=4, ensure_ascii=False)
+            print('疫情Ran if')
         else:
             pass
 
-bot.run("discord tokin")
+bot.run(jdd['discord token'])
