@@ -21,15 +21,15 @@ with open("rss.json", 'r',encoding="utf-8") as reader:
 
 @bot.event  
 async def on_ready():
-    bot.loop.create_task(random_text())
+    bot.loop.create_task(update())
     channel=bot.get_channel(int(jdd['channel']))
     c = channel.name
     print("{} Bot".format(bot.user))
     print("已定位 {} 頻道".format(c))
     print(">> 疫情RSS啟動成功 <<")
 
-async def random_text():
-  update.start()
+# async def random_text():
+#     update.start()
 
 @loop(seconds=5)
 async def update():
