@@ -1,7 +1,7 @@
 import requests
 from lxml import html
  
-rss = requests.get("https://www.cdc.gov.tw/Bulletin/Detail/3Bp_133jaKM_9c3TecbuTQ?typeId=9")
+rss = requests.get("https://www.cdc.gov.tw/Bulletin/Detail/E7bi2j8UYj1Rmz73OPE7Yg?typeId=9")
 
 tt = html.fromstring(rss.text)
 
