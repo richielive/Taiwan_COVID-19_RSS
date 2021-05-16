@@ -26,7 +26,7 @@ async def on_ready():
 async def random_text():
     update_rss.start()
 
-@loop(seconds=1)
+@loop(seconds=5)
 async def update_rss():
     #==========================================RSS==========================================#
     channel=bot.get_channel(int(jdd['channel']))
@@ -57,11 +57,10 @@ async def update_rss():
             embed.set_footer(text="資料來源:衛生福利部疾病管制屬RSS資料中心\n(discord嵌入僅可放一張圖片，更多圖片請點連結)",icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/ROC_Ministry_of_Health_and_Welfare_Seal.svg/200px-ROC_Ministry_of_Health_and_Welfare_Seal.svg.png")
             await channel.send(embed=embed)
             # await channel.send(f'> :hourglass::exclamation:**{post}**\n> {text} \n> {link}')
-            if (len(post_list) >= 1):
-                with open('rss.json',encoding="utf-8") as r:
-                    jd = json.load(r)
-                    jd['post_list'] = post
-                    json.dump(jd, open("rss.json","w",encoding='utf-8'), indent=4, ensure_ascii=False)
+            with open('rss.json',encoding="utf-8") as r:
+                jd = json.load(r)
+                jd['post_list'] = post
+                json.dump(jd, open("rss.json","w",encoding='utf-8'), indent=4, ensure_ascii=False)
             print('接收到疫情情報!「{}」'.format(post))
         else:
             pass
@@ -73,11 +72,10 @@ async def update_rss():
             embed.set_footer(text="資料來源:衛生福利部疾病管制屬RSS資料中心",icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/ROC_Ministry_of_Health_and_Welfare_Seal.svg/200px-ROC_Ministry_of_Health_and_Welfare_Seal.svg.png")
             await channel.send(embed=embed)
             # await channel.send(f'> :hourglass::exclamation:**{post}**\n> {text} \n> {link}')
-            if (len(post_list) >= 1):
-                with open('rss.json',encoding="utf-8") as r:
-                    jd = json.load(r)
-                    jd['post_list'] = post
-                    json.dump(jd, open("rss.json","w",encoding='utf-8'), indent=4, ensure_ascii=False)
+            with open('rss.json',encoding="utf-8") as r:
+                jd = json.load(r)
+                jd['post_list'] = post
+                json.dump(jd, open("rss.json","w",encoding='utf-8'), indent=4, ensure_ascii=False)
             print('接收到疫情情報!「{}」'.format(post))
         else:
             pass
